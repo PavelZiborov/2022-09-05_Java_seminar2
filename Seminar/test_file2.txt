@@ -1,0 +1,11 @@
+errors.png
+Seminar.iml
+.DS_Store
+pom.xml
+test_file.txt
+errors.png
+Seminar.iml
+.DS_Store
+pom.xml
+test_file2.txt
+test_file.txt
