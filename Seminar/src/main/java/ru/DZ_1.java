@@ -24,9 +24,16 @@ public class DZ_1 {
 
         for (File file: filesList) {
             if (file.isFile()) {                                   // isFile проверяет является ли объект файлом
-                name = file.getName().split("\\.")[0];       // экранирование "\\"
-                extension = file.getName().split("\\.")[1];
-                sb.append("Файл " + name + " имеет расширение: " + extension + "\n");
+                if (file.getName().split("\\.").length == 1) {
+                    name = file.getName();
+                    extension = "";
+                    sb.append("Файл " + name + " имеет расширение: " + extension + "\n");
+                }
+                else {
+                    name = file.getName().split("\\.")[0];       // экранирование "\\"
+                    extension = file.getName().split("\\.")[1];
+                    sb.append("Файл " + name + " имеет расширение: " + extension + "\n");
+                }
             }
         }
         System.out.println(sb.toString());
