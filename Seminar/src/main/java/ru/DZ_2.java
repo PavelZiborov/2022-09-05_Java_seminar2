@@ -15,9 +15,9 @@ public class DZ_2 {
         String filter = "{\"name\":\"Ivanov\",\"country\":\"Russia\",\"city\":\"Moscow\",\"age\":\"null\"}";
 
         String filer2 = filter.replace("\"", "")
-                .replace("{","")
-                .replace("}", "")
-                .replace(" ", "");
+                              .replace("{","")
+                              .replace("}", "")
+                              .replace(" ", "");
         // name:Ivanov,country:Russia,city:Moscow,age:null
 
         String[] stringArray = filer2.split(",");
