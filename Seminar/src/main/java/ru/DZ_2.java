@@ -1,5 +1,4 @@
 package ru;
-import java.io.*;
 
 public class DZ_2 {
     public static void main(String[] args) {
@@ -13,32 +12,27 @@ public class DZ_2 {
          */
 
         StringBuilder sb = new StringBuilder("select * from students where ");
-
         String filter = "{\"name\":\"Ivanov\",\"country\":\"Russia\",\"city\":\"Moscow\",\"age\":\"null\"}";
 
-        String filer2 = filter.replace("\"", "").replace("{","").replace("}", "");
+        String filer2 = filter.replace("\"", "")
+                .replace("{","")
+                .replace("}", "")
+                .replace(" ", "");
         // name:Ivanov,country:Russia,city:Moscow,age:null
 
-        String[] array1 = filer2.split(",");
+        String[] stringArray = filer2.split(",");
 
-        for (int i = 0; i < array1.length; i++) {
-            if (array1[i].equals("age:null")) {
-//                System.out.println(array1[i]);
-            } else {
-                sb.append(array1[i]);
-
+        for (int i = 0; i < stringArray.length; i++) {
+            if (!stringArray[i].contains("null")) {             // если не содержит подстроку null
+                sb.append(stringArray[i].split(":")[0])
+                  .append(" = ").append('\'')
+                  .append(stringArray[i].split(":")[1])
+                  .append('\'').append(" and ");
             }
-//            System.out.println(array1[i]);
-//            name:Ivanov
-//            country:Russia
-//            city:Moscow
-//            age:null
         }
+        sb.replace(sb.length()-5,sb.length(),"");
         System.out.println(sb);
         // "select * from students where name = 'Ivanov' and country = 'Russia' and city = 'Moscow'"
-
-
-
 
     }
 }
