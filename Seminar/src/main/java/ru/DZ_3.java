@@ -47,7 +47,6 @@ public class DZ_3 {
         resultStringB.append("Студент " + arr.get(3) + " получил " + arr.get(4) + " по предмету " + arr.get(5) + "\n");
         resultStringB.append("Студент " + arr.get(6) + " получил " + arr.get(7) + " по предмету " + arr.get(8));
 
-
         return resultStringB.toString();
     }
 }
