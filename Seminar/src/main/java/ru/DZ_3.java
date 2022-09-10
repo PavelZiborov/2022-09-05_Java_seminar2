@@ -42,6 +42,7 @@ public class DZ_3 {
                 arr.add(newStringArray3[1].replace("\"","").replace("}",""));
             }
         }
+
         resultStringB.append("Студент " + arr.get(0) + " получил " + arr.get(1) + " по предмету " + arr.get(2) + "\n");
         resultStringB.append("Студент " + arr.get(3) + " получил " + arr.get(4) + " по предмету " + arr.get(5) + "\n");
         resultStringB.append("Студент " + arr.get(6) + " получил " + arr.get(7) + " по предмету " + arr.get(8));
