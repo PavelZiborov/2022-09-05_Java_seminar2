@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 
 public class DZ_3 {
@@ -21,17 +22,8 @@ public class DZ_3 {
         Студент Краснов получил 5 по предмету Физика.
          */
 
-//        File file = new File("/Users/pavel/Documents/IT/2022-09-05_Java_seminar2/Seminar/Students.json");
         String jsonString = "[{\"фамилия\":\"Иванов\",\"оценка\":\"5\",\"предмет\":\"Математика\"},{\"фамилия\":\"Петрова\",\"оценка\":\"4\",\"предмет\":\"Информатика\"},{\"фамилия\":\"Краснов\",\"оценка\":\"5\",\"предмет\":\"Физика\"}]";
         System.out.println(ParseJson(jsonString));
-
-
-
-//        try (PrintWriter wr = new PrintWriter(file)) {
-//            wr.println(); // запись построковая
-//        } catch (IOException ex) {
-//            System.out.println(ex.getLocalizedMessage());
-//        }
     }
 
     public static String ParseJson (String str) {
@@ -39,35 +31,22 @@ public class DZ_3 {
         StringBuilder resultStringB = new StringBuilder();
         //        String resultStr = str.substring(str.indexOf('.') + 1, str.indexOf(':'));
         String [] newStringArray = str.replace("[", "").replace("]","").split("},\\{");
-//        String [] temp = newStringArray[0].replace("{", "");
+        String [] newStringArray2;
+        String [] newStringArray3;
+        ArrayList<String> arr = new ArrayList<String>();
+
         for (int i = 0; i < newStringArray.length; i++) {
-            System.out.println(newStringArray[i]);
+            newStringArray2 = newStringArray[i].split(",");
+            for (int j = 0; j < newStringArray2.length; j++) {
+                newStringArray3 = newStringArray2[j].split(":");
+                arr.add(newStringArray3[1].replace("\"","").replace("}",""));
+            }
         }
-
-//        for (int i = 0; i < charArray.length; i++) {
-//
-//
-//            System.out.print(charArray[i]);
-//        }
-
-//        System.out.println(stringArray);
-//
-//        for (int i = 0; i < stringArray.length; i++) {
-//            System.out.println(stringArray[i]);
-//        }
+        resultStringB.append("Студент " + arr.get(0) + " получил " + arr.get(1) + " по предмету " + arr.get(2) + "\n");
+        resultStringB.append("Студент " + arr.get(3) + " получил " + arr.get(4) + " по предмету " + arr.get(5) + "\n");
+        resultStringB.append("Студент " + arr.get(6) + " получил " + arr.get(7) + " по предмету " + arr.get(8));
 
 
-
-//        for (int i = 0; i < stringArray.length; i++) {
-//            if (!stringArray[i].contains("null")) {             // если не содержит подстроку null
-//                sb.append(stringArray[i].split(":")[0])
-//                        .append(" = ").append('\'')
-//                        .append(stringArray[i].split(":")[1])
-//                        .append('\'').append(" and ");
-//            }
-//        }
-        return str;
+        return resultStringB.toString();
     }
-
-
 }
