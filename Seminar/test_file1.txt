@@ -1,6 +1,8 @@
 errors.png
 Seminar.iml
 .DS_Store
+bez_rasshireniya
+100736.jpg
 /target
 pom.xml
 test_file2.txt
